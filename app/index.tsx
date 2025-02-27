@@ -18,8 +18,6 @@ import { Colors } from '@/constants/Colors';
   
 
 const index = () => {
-    const [isLoading, setLoading] = useState(true)
-
     let [fontsLoaded] = useFonts({
         LeagueSpartan_100Thin,
         LeagueSpartan_200ExtraLight,
@@ -33,21 +31,18 @@ const index = () => {
     });    
 
     useEffect(
-        () => {
+        () => {            
             if (fontsLoaded == true) {
-                setLoading(false)
-            }
-            if (isLoading == false) {
                 router.replace("/(tabs)/database")
             }
         },
-        [isLoading, fontsLoaded]
+        [fontsLoaded]
     )
 
     return (
         <SafeAreaView style={AppStyle.safeArea} >
             <View style={{flex: 1, alignItems: "center", justifyContent: "center"}} >
-                <ActivityIndicator size={64} color={Colors.white} />
+                <ActivityIndicator size={96} color={Colors.orange} />
             </View>        
         </SafeAreaView>
     )
